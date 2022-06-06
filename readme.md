@@ -22,3 +22,9 @@ yarn lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+## 注意
+### 安装依赖注意事项
+1. stylelint 版本要13.13.1。 14以上的版本有点小问题
+2. husky全局安装
