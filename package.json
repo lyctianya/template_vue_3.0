@@ -64,9 +64,12 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{jsx,txs,ts,js,json,css,md}": [
+    "src/**/*.{jsx,txs,ts,js,json,md}": [
       "prettier --write",
       "eslint --fix"
+    ],
+    "*.{vue,css,scss}": [
+      "stylelint --fix"
     ]
   },
   "repository": {
