@@ -1,11 +1,14 @@
 {
-  "name": "vue3.0ts",
-  "version": "0.1.0",
+  "name": "template",
+  "version": "0.0.1",
+  "description": "vue3.0ts模板",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "dev": "",
+    "prod": ""
   },
   "dependencies": {
     "core-js": "^3.8.3",
@@ -65,5 +68,9 @@
       "prettier --write",
       "eslint --fix"
     ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lyctianya/template_vue_3.0.git"
   }
 }
