@@ -2,7 +2,7 @@ const { defineConfig } = require("@vue/cli-service");
 const TerserPlugin = require("terser-webpack-plugin");
 const Path = require("path");
 module.exports = defineConfig({
-  publicPath: "./",
+  publicPath: "/",
   outputDir: "dist",
   assetsDir: "static",
   pages: {
@@ -10,20 +10,23 @@ module.exports = defineConfig({
       entry: "src/main.ts",
       template: "./public/index.html",
       filename: "index.html",
+      title: "首页",
     },
   },
+  lintOnSave: "default",
+  runtimeCompiler: false,
   productionSourceMap: false,
-  transpileDependencies: true,
+  transpileDependencies: false,
   chainWebpack: (config) => {
     config.plugin("define").tap((args) => {
       // args[0]['process.env'].API_CONFIG = JSON.stringify(envConfig)
       return args;
     });
-    config.module
-      .rule("images")
-      .use("url-loader")
-      .loader("url-loader")
-      .tap((options) => Object.assign(options, { limit: 1 }));
+    // config.module
+    //   .rule("images")
+    //   .use("url-loader")
+    //   .loader("url-loader")
+    //   .tap((options) => Object.assign(options, { limit: 1 }));
 
     config.module
       .rule("svg")
@@ -50,9 +53,9 @@ module.exports = defineConfig({
       // 注入编译时配置
       args[0].feConfig = {};
       //html里使用是否引号
-      args[0].minify.removeAttributeQuotes = false;
+      // args[0].minify.removeAttributeQuotes = false;
       // 开启html注释
-      args[0].minify.removeComments = false;
+      // args[0].minify.removeComments = false;
       return args;
     });
 
@@ -62,18 +65,17 @@ module.exports = defineConfig({
   css: {
     extract: false,
     sourceMap: false,
-    modules: false,
   },
   // 在多核机器下会默认开启
   parallel: require("os").cpus().length > 1,
-  devServer: {
-    host: "0.0.0.0",
-    port: 8080,
-    https: false,
-    hot: true,
-    open: true,
-    disableHostCheck: true,
-  },
+  // devServer: {
+  //   host: "localhost",
+  //   port: 8080,
+  //   https: false,
+  //   hot: true,
+  //   open: true,
+  //   disableHostCheck: true,
+  // },
   pluginOptions: {
     i18n: {
       locale: "ch",
